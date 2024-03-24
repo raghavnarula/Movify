@@ -12,6 +12,7 @@ Future Work
 - [ ] Add JWT Tokens
 - [ ] Add more models
 - [ ] Enhance the Recommender System (Currently it's based on upvotes > 3)
+- [ ] Add Flash Messages
  
 **Preview Video**
 
