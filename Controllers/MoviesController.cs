@@ -84,7 +84,7 @@ namespace mvcMovie.Controllers
         _context.Update(movie);
         await _context.SaveChangesAsync();
 
-        return RedirectToAction("Index", "/");
+        return RedirectToAction("All", "Home");
         }
 
         public IActionResult Decrement()
@@ -110,7 +110,7 @@ namespace mvcMovie.Controllers
         // Increment upvotes count
 
 
-        return RedirectToAction("Index", "/");
+        return RedirectToAction("All", "Home");
         }
 
 

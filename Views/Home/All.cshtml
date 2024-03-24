@@ -5,45 +5,40 @@
     <link rel="stylesheet" href="~/css/output.css"/>
 }
 
-<style>
-    html,
-    body {
-        overflow-x: hidden;
-    }
-</style>
-
 <p class="text-4xl pb-4">Top Trending Movies</p>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center overflow-x-hidden">
-    @foreach (var item in Model.Where(m => m.Upvotes > 2))    
-    {
-        <div class="bg-white shadow-md rounded-lg p-6">
-            <h2 class="text-xl font-semibold mb-4 text-center">@Html.DisplayFor(modelItem => item.Title)</h2>
-            <img src="https://via.placeholder.com/150" alt="Placeholder Image" class="rounded-full h-8 w-8 mx-auto pb-4">
-            <p><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.ReleaseDate)</p>
-            <p><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genre)</p>
-            <p><strong>Price:</strong> @Html.DisplayFor(modelItem => item.Price)</p>
-            <p><strong>Upvotes:</strong> @Html.DisplayFor(modelItem => item.Upvotes)</p>
-            <div class="mt-4 flex items-center flex-wrap">
-                <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 inline-block" asp-controller="Movies" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-block" asp-action="Delete" asp-controller="Movies" asp-route-id="@item.Id">Delete</a>
-                <form class="inline" asp-controller="Movies" asp-action="IncrementUpvote" method="post">
-                    <input type="hidden" name="Id" value="@item.Id" />
-                    <button type="submit" class="bg-green-500 inline-flex items-center p-1 rounded mx-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
-                        </svg>
-                    </button>
-                </form>
-                <form class="inline" asp-controller="Movies" asp-action="Decrement" method="post">
-                    <input type="hidden" name="Id" value="@item.Id" />
-                    <button type="submit" class="bg-red-500 inline-flex items-center p-1 rounded">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                </form>
+<div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center overflow-x-hidden">
+        @foreach (var item in Model.Where(m => m.Upvotes > 2))    
+        {
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-xl font-semibold mb-4 text-center">@Html.DisplayFor(modelItem => item.Title)</h2>
+                <img src="https://via.placeholder.com/150" alt="Placeholder Image" class="rounded-full h-8 w-8 mx-auto pb-4">
+                <p><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.ReleaseDate)</p>
+                <p><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genre)</p>
+                <p><strong>Price:</strong> @Html.DisplayFor(modelItem => item.Price)</p>
+                <p><strong>Upvotes:</strong> @Html.DisplayFor(modelItem => item.Upvotes)</p>
+                <div class="mt-4 flex items-center flex-wrap">
+                    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 inline-block" asp-controller="Movies" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-block" asp-action="Delete" asp-controller="Movies" asp-route-id="@item.Id">Delete</a>
+                    <form class="inline" asp-controller="Movies" asp-action="IncrementUpvote" method="post">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button type="submit" class="bg-green-500 inline-flex items-center p-1 rounded mx-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+                            </svg>
+                        </button>
+                    </form>
+                    <form class="inline" asp-controller="Movies" asp-action="Decrement" method="post">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button type="submit" class="bg-red-500 inline-flex items-center p-1 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
