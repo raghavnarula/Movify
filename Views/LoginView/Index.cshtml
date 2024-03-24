@@ -1,0 +1,29 @@
+@model MvcMovie.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="flex justify-center items-center h-full ml-[50vh]">
+    <div class="shadow-md rounded px-8 pt-6 pb-8 mb-4 ">
+        <form asp-action="Index" asp-controller="LoginView" method="post" class="w-full max-w-sm">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Username:
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" name="username" type="text" placeholder="Username" required>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    Password:
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="Password" required>
+            </div>
+            <div class="flex items-center justify-center">
+                <button class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
